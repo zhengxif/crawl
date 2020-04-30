@@ -6,7 +6,7 @@ let connection = mysql.createConnection({
     port: 3306,
     database: 'crawl',
     user: 'root',
-    password: '123456'
+    password: '!Zx1992,.' // 123456
 })
 connection.connect()
 module.exports = Promise.promisify(connection.query).bind(connection) // connection.query方法 Promise化
