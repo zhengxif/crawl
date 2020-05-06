@@ -90,16 +90,16 @@ app.post('/subscribe', auth, async function(req, res) {
 })
 
 // 定时任务
-// let job = new CronJob('* * * */1 * *', function() {
-//     debug('开始执行更新的计划任务');
-//     let child = spawn(process.execPath, [path.resolve(__dirname, '../main.js')]);
-//     child.stdout.pipe(process.stdout);
-//     child.stderr.pipe(process.stderr);
-//     child.on('close', function() {
-//         console.log('更新任务完毕');
-//     })
-// })
-// job.start()
+let job = new CronJob('* * * */1 * *', function() {
+    debug('开始执行更新的计划任务');
+    let child = spawn(process.execPath, [path.resolve(__dirname, '../main.js')]);
+    child.stdout.pipe(process.stdout);
+    child.stderr.pipe(process.stderr);
+    child.on('close', function() {
+        console.log('更新任务完毕');
+    })
+})
+job.start()
 app.listen(3000)
 
 
